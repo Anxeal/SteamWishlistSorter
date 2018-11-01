@@ -315,7 +315,14 @@ GM_addStyle(`
         var sorter = new ManualSorter(wl.rgAllApps, $leftButton, $rightButton, function(next){
             if (next.done) {
                 wl.rgAllApps = next.result;
+                wl.rgFilterSettings = {
+                    sort: "order",
+                    last_sort: "order",
+                    type: "all",
+                    view: wl.rgFilterSettings.view
+                }
                 wl.Update();
+
                 $overlay.fadeOut();
                 $saveButton.fadeIn();
                 alert("Done sorting! Please review your wishlist and save or discard.");

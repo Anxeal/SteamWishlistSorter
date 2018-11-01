@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Steam Wishlist Sorter
 // @namespace    SWS
-// @version      1.0.2
+// @version      1.0.3
 // @description  Lets you sort your Steam wishlist by comparing two games at a time.
 // @author       Anxeal
 // @license      MIT

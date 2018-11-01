@@ -11,6 +11,7 @@ Sort your Steam wishlist by comparing two games at a time. Perfect solution for 
 - Save your progress and continue sorting anytime
 - Preview before committing changes to your wishlist
 - Beautiful user interface *(not really :v)*
+- Middle click to open store page
 
 ## Installation
 - Install a userscript manager of your choice ([Tampermonkey](https://tampermonkey.net), [Greasemonkey](https://www.greasespot.net/), etc.)
@@ -25,4 +26,4 @@ Sort your Steam wishlist by comparing two games at a time. Perfect solution for 
 - **Load Progress:** Loads your previously saved progress
 
 ### Sorting overlay
-You will be presented 2 games at a time. Pick the one you wish the most. You can see your progress at the bottom. You can close the overlay by clicking the X on the top right.
+You will be presented 2 games at a time. Pick the one you wish the most. You can also middle click on the games to open their store pages. You can see your progress at the bottom. You can close the overlay by clicking the X on the top right.

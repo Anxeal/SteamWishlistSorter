@@ -236,8 +236,12 @@ GM_addStyle(`
 
         $('.sws-choice-button').hover(function(){
             $appTitleText.text($(this).attr("data-app-title")).stop().animate({ opacity: 1 }, 200);
-        },function(){
+        }, function(){
             $appTitleText.stop().animate({ opacity: 0 }, 200);
+        }).on("mousedown", function(e){
+            if(e.which == 2) { // middleclick
+                window.open('https://store.steampowered.com/app/'+$(this).attr("data-app-id")+'/', '_blank');
+            }
         });
 
         // close button behavior

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Steam Wishlist Sorter
 // @namespace    SWS
-// @version      1.0.0
+// @version      1.0.1
 // @description  Lets you sort your Steam wishlist by comparing two games at a time.
 // @author       Anxeal
 // @downloadURL  https://github.com/Anxeal/SteamWishlistSorter/raw/master/SWS.user.js
@@ -323,7 +323,7 @@ GM_addStyle(`
     });
 
     var checkWishlist = function(){
-        if(window.g_Wishlist == null){
+        if(!window.g_Wishlist || !window.g_Wishlist.rgAllApps){
             console.log("[SWS] Waiting for wishlist...");
             setTimeout(checkWishlist, 500);
             return;

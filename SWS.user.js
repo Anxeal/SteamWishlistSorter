@@ -11,10 +11,14 @@
 // @grant        GM_addStyle
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @grant        GM.addStyle
+// @grant        GM.setValue
+// @grant        GM.getValue
+// @require      https://openuserjs.org/src/libs/sizzle/gm4-polyfill.js
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // ==/UserScript==
 
-GM_addStyle(`
+GM.addStyle(`
 .sws-overlay {
      display:flex;
      flex-direction:column;
@@ -213,7 +217,7 @@ GM_addStyle(`
 
     var waitForWishlist = $.Deferred();
 
-    waitForWishlist.then(function(wl){
+    waitForWishlist.then(function(){(async function() {
 
         // g_bCanEdit => if wishlist is editable
 
@@ -222,6 +226,8 @@ GM_addStyle(`
             console.log("[SWS] Can't edit wishlist: Stopping.");
             return;
         }
+
+        var wl = window.g_Wishlist;
 
         var $overlay = $("<div class='sws-overlay'></div>");
         var $closeButton = $("<a class='sws-close-button'>×</a>");
@@ -277,20 +283,20 @@ GM_addStyle(`
         });
 
         $saveProgressButton.hide().children().children().text("Save Progress");
-        $saveProgressButton.appendTo(".wishlist_header").children().click(function(){
+        $saveProgressButton.appendTo(".wishlist_header").children().click(function(){(async function() {
             var data = sorter.serialize();
-            GM_setValue("sws-sorter-data", data);
+            await GM.setValue("sws-sorter-data", data);
             alert("Progress Saved!");
-        });
+        })();});
 
         $loadProgressButton.hide().children().children().text("Load Progress");
-        $loadProgressButton.appendTo(".wishlist_header").children().click(function(){
-            var data = GM_getValue("sws-sorter-data");
+        $loadProgressButton.appendTo(".wishlist_header").children().click(function(){(async function(){
+            var data = await GM.getValue("sws-sorter-data");
             sorter.deserialize(data);
             sorter.sendNext();
             $sortButton.children().click();
-        });
-        if(GM_getValue("sws-sorter-data")) $loadProgressButton.fadeIn();
+        })();});
+        if(await GM.getValue("sws-sorter-data")) $loadProgressButton.fadeIn();
 
         var fadeDuration = 100;
         var setChoiceData = function($button, side){
@@ -310,7 +316,6 @@ GM_addStyle(`
                 $button.removeAttr("disabled");
             });
         }
-
 
         var sorter = new ManualSorter(wl.rgAllApps, $leftButton, $rightButton, function(next){
             if (next.done) {
@@ -332,7 +337,7 @@ GM_addStyle(`
                 if(sorter) $progress.children().width((sorter.progress)+"%");
             }
         });
-    });
+    })()});
 
     var checkWishlist = function(){
         if(!window.g_Wishlist || !window.g_Wishlist.rgAllApps){

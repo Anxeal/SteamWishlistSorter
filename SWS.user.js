@@ -4,6 +4,7 @@
 // @version      1.0.1
 // @description  Lets you sort your Steam wishlist by comparing two games at a time.
 // @author       Anxeal
+// @license      MIT
 // @downloadURL  https://github.com/Anxeal/SteamWishlistSorter/raw/master/SWS.user.js
 // @updateURL    https://github.com/Anxeal/SteamWishlistSorter/raw/master/SWS.meta.js
 // @match        https://store.steampowered.com/wishlist/*

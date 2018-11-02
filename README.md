@@ -4,7 +4,7 @@
 Please consider donating if you end up liking it :)
 
 ## Description
-Sort your Steam wishlist by comparing two games at a time. Perfect solution for those who have many games in their wishlist but doesn't know where to start. It should cut the time it takes to sort normally but it will still take relatively long for those with huge wishlists. Worry not! You can always save and come back later to finish sorting.
+Sort your Steam wishlist by comparing **two games** at a time. Perfect solution for those who have many games in their wishlist but doesn't know where to start. It should cut the time it takes to sort normally but it will still take relatively long for those with huge wishlists. Worry not! You can always save and come back later to finish sorting.
 
 ## Features
 - Hassle-free wishlist sorting
